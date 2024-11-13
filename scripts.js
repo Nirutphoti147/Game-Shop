@@ -95,8 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function toggleDropdown(event) {
         event.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้นของ anchor
+        const dropdownContent = event.target.nextElementSibling;
         if (window.innerWidth > 768) { // ตรวจสอบว่าความกว้างของหน้าจอมากกว่า 768px หรือไม่
-            const dropdownContent = event.target.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        } else {
+            // สำหรับมือถือ toggle dropdown content
             if (dropdownContent.style.display === "block") {
                 dropdownContent.style.display = "none";
             } else {
