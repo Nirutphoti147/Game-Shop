@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Retro Game Shop</title>
+    <meta name="description" content="View your cart at Retro Game Shop. Check out your selected retro games and consoles.">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+        }
+        main {
+            flex: 1; /* Allow main to grow and push footer down */
+        }
+        .cart {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #16213e;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+        .cart h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #e94560;
+        }
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e94560;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item img {
+            width: 80px;
+            height: auto;
+            border-radius: 4px;
+        }
+        .cart-item-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .cart-item-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #eaeaea;
+        }
+        .cart-item-price {
+            color: #e94560;
+        }
+        .remove-button {
+            background-color: #e94560;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .remove-button:hover {
+            background-color: #d63447;
+        }
+        .cart-summary {
+            text-align: right;
+        }
+        .cart-summary p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .checkout-button {
+            background-color: #e94560;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .checkout-button:hover {
+            background-color: #d63447;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            color: #eaeaea;
+            background-color: #1a1a2e;
+            border: 1px solid #e94560;
+            border-radius: 4px;
+            margin: 0 5px;
+            padding: 5px;
+            -moz-appearance: textfield; /* Firefox */
+            font-family: 'Press Start 2P', cursive; /* Retro font */
+        }
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+            margin: 0;
+        }
+        .quantity-button {
+            background-color: #ff00ff; /* Bright magenta */
+            color: #ffff00; /* Bright yellow */
+            border: 2px solid #000; /* Black border */
+            width: 40px;
+            height: 40px;
+            border-radius: 8px; /* Slightly rounded corners */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Press Start 2P', cursive; /* Retro font */
+            box-shadow: 2px 2px 0 #000; /* 3D effect */
+        }
+        .quantity-button:hover {
+            background-color: #ff66ff; /* Lighter magenta on hover */
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 #000; /* Enhanced 3D effect */
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #00ff00;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            border-top: 4px solid #ff00ff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Retro Game Shop</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Consoles</a>
+                    <div class="dropdown-content">
+                        <a href="#">Nintendo</a>
+                        <a href="#">PlayStation</a>
+                        <a href="#">Gameboy</a>
+                        <a href="#">All</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="#">Arcade</a>
+                        <a href="#">Puzzle</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Fighting</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart-item"><a href="cart.html" class="cart-button"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">฿0</span></p>
+                <button class="checkout-button">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Retro Game Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            cart.forEach(item => {
+                if (!item.quantity) item.quantity = 1; // Initialize quantity if not present
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.imageUrl}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <p class="cart-item-title">${item.name}</p>
+                        <p class="cart-item-price">${item.price}</p>
+                        <div class="quantity-controls">
+                            <button class="quantity-button decrease">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+                            <button class="quantity-button increase">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-button">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+
+                // Calculate total price
+                total += parseFloat(item.price.replace('$', '')) * item.quantity;
+
+                // Add event listeners for quantity buttons
+                const quantityInput = cartItem.querySelector('.quantity-input');
+                cartItem.querySelector('.increase').addEventListener('click', () => {
+                    item.quantity++;
+                    quantityInput.value = item.quantity; // Update the input field
+                    updateCart();
+                });
+
+                cartItem.querySelector('.decrease').addEventListener('click', () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        quantityInput.value = item.quantity; // Update the input field
+                        updateCart();
+                    }
+                });
+
+                // Add event listener for quantity input
+                quantityInput.addEventListener('change', (event) => {
+                    const newQuantity = parseInt(event.target.value);
+                    if (newQuantity > 0) {
+                        item.quantity = newQuantity;
+                        updateCart();
+                    } else {
+                        event.target.value = item.quantity; // Reset to previous value if invalid
+                    }
+                });
+
+                // Add event listener to remove button
+                cartItem.querySelector('.remove-button').addEventListener('click', () => {
+                    removeFromCart(item);
+                });
+            });
+
+            // Update total price
+            updateTotal();
+
+            function updateCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateTotal(); // Update the total price without reloading
+            }
+
+            function updateTotal() {
+                total = cart.reduce((acc, item) => acc + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
+                cartTotalElement.textContent = `$${total.toFixed(2)}`;
+            }
+
+            function removeFromCart(itemToRemove) {
+                cart = cart.filter(item => item.name !== itemToRemove.name);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                cartItemsContainer.innerHTML = ''; // Clear the cart display
+                cart.forEach(item => {
+                    // Re-render the cart items
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.imageUrl}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <p class="cart-item-title">${item.name}</p>
+                            <p class="cart-item-price">${item.price}</p>
+                            <div class="quantity-controls">
+                                <button class="quantity-button decrease">-</button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+                                <button class="quantity-button increase">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-button">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                updateTotal(); // Update the total price
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -53,26 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="buy-now">BUY</button>
         `;
         gameList.appendChild(gameItem);
+
+        // Add event listener to the buy button
+        gameItem.querySelector('.buy-now').addEventListener('click', () => {
+            addToCart(game);
+        });
     });
 
-    const slides = document.querySelectorAll('.slides img');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
+    function addToCart(game) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(game);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${game.name} has been added to your cart.`);
     }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    showSlide(currentSlide);
-    setInterval(nextSlide, 3000); // Change slide every 3 seconds
-
 });
