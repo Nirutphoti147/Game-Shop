@@ -67,17 +67,21 @@
             color: #e94560;
         }
         .remove-button {
-            background-color: #e94560;
-            color: #fff;
-            border: none;
+            background-color: #ff0000; /* Bright magenta */
+            color: #ffff00; /* Bright yellow */
+            border: 2px solid #000; /* Black border */
             padding: 5px 10px;
             font-size: 12px;
             cursor: pointer;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Press Start 2P', cursive; /* Retro font */
+            box-shadow: 2px 2px 0 #000; /* 3D effect */
         }
         .remove-button:hover {
-            background-color: #d63447;
+            background-color: #26ff00; /* Lighter magenta on hover */
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 #000; /* Enhanced 3D effect */
         }
         .cart-summary {
             text-align: right;
@@ -87,17 +91,21 @@
             margin: 10px 0;
         }
         .checkout-button {
-            background-color: #e94560;
-            color: #fff;
-            border: none;
+            background-color: #ff0000; /* Bright magenta */
+            color: #ffff00; /* Bright yellow */
+            border: 2px solid #000; /* Black border */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Press Start 2P', cursive; /* Retro font */
+            box-shadow: 2px 2px 0 #000; /* 3D effect */
         }
         .checkout-button:hover {
-            background-color: #d63447;
+            background-color: #69ff66; /* Lighter magenta on hover */
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 #000; /* Enhanced 3D effect */
         }
         .quantity-controls {
             display: flex;
@@ -121,8 +129,8 @@
             margin: 0;
         }
         .quantity-button {
-            background-color: #ff00ff; /* Bright magenta */
-            color: #ffff00; /* Bright yellow */
+            background-color: #ffee00; /* Bright magenta */
+            color: #001aff; /* Bright yellow */
             border: 2px solid #000; /* Black border */
             width: 40px;
             height: 40px;

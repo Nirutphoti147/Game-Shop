@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Retro Game Shop</title>
+    <meta name="description" content="Contact Retro Game Shop for inquiries about retro games and consoles.">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+        }
+        header {
+            background-color: #16213e;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 4px solid #e94560;
+        }
+        .logo-container h1 {
+            color: #ffffff;
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #eaeaea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e94560;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .contact-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #16213e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .contact-container h2 {
+            text-align: center;
+            color: #e94560;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .contact-methods {
+            margin-bottom: 20px;
+        }
+        .contact-methods p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .contact-methods a {
+            color: #ff00ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-methods a:hover {
+            color: #ff66ff;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-bottom: 5px;
+            color: #eaeaea;
+        }
+        .contact-form input, .contact-form textarea {
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            border: 1px solid #e94560;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-family: 'Press Start 2P', cursive;
+        }
+        .contact-form button {
+            background-color: #ff00ff;
+            color: #ffff00;
+            border: 2px solid #000;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Press Start 2P', cursive;
+            box-shadow: 2px 2px 0 #000;
+        }
+        .contact-form button:hover {
+            background-color: #ff66ff;
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0 #000;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #00ff00;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            border-top: 4px solid #ff00ff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Retro Game Shop</h1><br>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <div class="contact-methods">
+                <p><strong>Facebook:</strong> <a href="#" target="_blank">Retro Game Shop</a></p><br>
+                <p><strong>Line:</strong> <a href="#" target="_blank">@retrogameshop</a></p><br>
+                <p><strong>Phone:</strong> <a href="#">+1 234 567 890</a></p><br>
+                <p><strong>Email:</strong> <a href="#">contact@retrogameshop.com</a></p><br>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Retro Game Shop. All rights reserved.</p>
+    </footer>
+
+</body>
+</html> 
