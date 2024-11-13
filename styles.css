@@ -2,21 +2,18 @@
 body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
-    background-image: url('img/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: linear-gradient(to bottom, black , rgb(24, 24, 113) );
     color: #ffffff;
     font-size: 16px;
 }
 
 header {
-    background-image: url('img/bg.jpg');
+    background: transparent;
     color: #00ff00;
     text-align: center;
     padding: 20px 0;
-    border-bottom: 4px solid #ff00ff;
-}
+    border-bottom: 4px solid #ffffff;
+}   
 
 nav {
     display: flex;
@@ -38,10 +35,10 @@ nav {
 /* Keyframes for glow effect */
 @keyframes glow {
     from {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #ffdd00, 0 0 20px #ff0000;
     }
     to {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #ffdd00, 0 0 30px #ff0000;
     }
 }
 
@@ -59,7 +56,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #00ff00;
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s, transform 0.3s;
     display: flex;
@@ -83,7 +80,7 @@ nav ul li a:hover {
 }
 
 .dropdown-content a {
-    color: #00ff00;
+    color: #ffffff;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -95,12 +92,12 @@ nav ul li a:hover {
 }
 
 .featured-games {
-    padding: 50px 20px 70px;
+    padding: 50px 20px 100px;
     text-align: center;
-    background: linear-gradient(to right, rgba(0, 0, 139, 0.8), rgba(139, 0, 0, 0.8)); /* ใช้สีที่เข้มขึ้นและเพิ่มความโปร่งใส */
+    background: transparent; /* ใช้สีที่เข้มขึ้นและเพิ่มความโปร่งใส */
     margin: 20px auto;
     border-radius: 10px;
-    border: 2px dashed #ffffff;
+    border: 4px dashed #ffffff;
     max-width: 1200px;
 }
 
@@ -266,4 +263,35 @@ footer {
     font-family: 'Press Start 2P', cursive;
     font-size: 13px;
     color: #888; /* Optional: Change the placeholder text color */
+}
+
+h1 {
+    font-size: 3em; /* ขนาดตัวอักษรเริ่มต้นสำหรับ h1 */
+    color: #ffcc00;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้กับ h1 */
+    margin: 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* เพิ่มระยะห่างระหว่างตัวอักษรสำหรับ h1 */
+}
+
+h2 {
+    font-size: 1.5em; /* ขนาดตัวอักษรเริ่มต้นสำหรับ h2 */
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2em; /* ลดขนาดตัวอักษรสำหรับ h1 บนหน้าจอมือถือ */
+        margin: 20px 0;
+    }
+    
+    h2 {
+        font-size: 1.8em; /* ลดขนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
+        margin: 15px 0;
+    }
 }
