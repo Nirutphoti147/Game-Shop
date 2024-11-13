@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(to bottom, black , rgb(24, 24, 113) );
+    background: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(35, 14, 127) );
     color: #ffffff;
     font-size: 16px;
 }
@@ -171,7 +171,7 @@ footer {
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
-    border-top: 4px solid #ff00ff;
+    border-top: 4px solid #ffffff;
 }
 /* Media query for mobile devices */
 @media (max-width: 768px) {
