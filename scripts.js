@@ -94,12 +94,25 @@ document.addEventListener('DOMContentLoaded', () => {
     removeLastItem(); // ลบรายการสุดท้าย
 
     function toggleDropdown(event) {
-        event.preventDefault(); // Prevent default anchor behavior
-        const dropdownContent = event.target.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-        } else {
-            dropdownContent.style.display = "block";
+        event.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้นของ anchor
+        if (window.innerWidth > 768) { // ตรวจสอบว่าความกว้างของหน้าจอมากกว่า 768px หรือไม่
+            const dropdownContent = event.target.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        }
+    }
+
+    function toggleMenu() {
+        if (window.innerWidth > 768) { // toggle เมนูเฉพาะเมื่อความกว้างของหน้าจอมากกว่า 768px
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.style.display === "block") {
+                navLinks.style.display = "none";
+            } else {
+                navLinks.style.display = "block";
+            }
         }
     }
 
