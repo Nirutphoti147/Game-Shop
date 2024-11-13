@@ -36,6 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'The ultimate fighting game.', 
             imageUrl: 'img/street-fighter.jpg', 
             price: '$19.99' 
+        },
+        { 
+            name: 'Galactic Quest: The Lost Stars', 
+            description: 'Recover the lost stars of the galaxy.', 
+            imageUrl: 'img/galactic-quest.jpg', 
+            price: '$21.99' 
+        },
+        { 
+            name: 'X-Men: Mutant Apocalypse', 
+            description: 'Join the X-Men in their battle against evil mutants.', 
+            imageUrl: 'img/x-men-mutant-apocalypse.jpg', 
+            price: '$22.99' 
         }
     ];
 
@@ -66,4 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         alert(`${game.name} has been added to your cart.`);
     }
+
+    // Function to remove the last item from the cart
+    function removeLastItem() {
+        if (cart.length > 0) {
+            cart.pop();
+            localStorage.setItem('cart', JSON.stringify(cart));
+            console.log('Last item removed. Current cart:', cart);
+        } else {
+            console.log('Cart is already empty.');
+        }
+    }
+
+    // Example usage
+    removeLastItem(); // ลบรายการสุดท้าย
 });
