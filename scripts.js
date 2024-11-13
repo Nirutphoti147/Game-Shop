@@ -92,4 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Example usage
     removeLastItem(); // ลบรายการสุดท้าย
+
+    function toggleDropdown(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        const dropdownContent = event.target.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    }
+
+    document.addEventListener("click", function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(dropdown => {
+                dropdown.style.display = "none";
+            });
+        }
+    });
+
+    function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show');
+    }
 });

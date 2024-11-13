@@ -19,10 +19,13 @@
         </div>
 
         <nav>
-            <ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
                 <li><a href="#">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Consoles</a>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown(event)">Consoles</a>
                     <div class="dropdown-content">
                         <a href="#">Nintendo</a>
                         <a href="#">PlayStation</a>
@@ -65,5 +68,17 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdownContent = event.target.nextElementSibling;
+            dropdownContent.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

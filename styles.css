@@ -19,6 +19,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo-container h1 {
@@ -49,6 +50,7 @@ nav ul {
     gap: 20px;
     align-items: center;
     position: relative;
+    flex-direction: row;
 }
 
 nav ul li {
@@ -186,6 +188,36 @@ footer {
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+        display: flex;
+        position: static;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .cart-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cart-item a {
+        display: inline-block;
+        padding: 10px 20px;
+    }
+
+    .hamburger {
+        display: none;
     }
 
     .featured-games {
@@ -198,6 +230,24 @@ footer {
 
     .buy-now {
         font-size: 0.9em;
+        padding: 15px 30px; /* Increase button size for better touch targets */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on mobile */
+    }
+}
+
+/* Media query for smaller mobile screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2em; /* ลดขนาดตัวอักษรสำหรับ h1 บนหน้าจอมือถือ */
+        margin: 20px 0;
+    }
+    
+    h2 {
+        font-size: 1.8em; /* ลดขนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
+        margin: 15px 0;
     }
 }
 
@@ -283,15 +333,10 @@ h2 {
     letter-spacing: 2px;
 }
 
-/* Media query for mobile screens */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.2em; /* ลดขนาดตัวอักษรสำหรับ h1 บนหน้าจอมือถือ */
-        margin: 20px 0;
-    }
-    
-    h2 {
-        font-size: 1.8em; /* ลดขนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
-        margin: 15px 0;
-    }
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+    margin-right: 20px;
 }
