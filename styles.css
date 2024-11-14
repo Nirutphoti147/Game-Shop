@@ -129,7 +129,8 @@ nav ul li a:hover {
     
 .game-list-item {
     background-color: #1a1a1a;
-    border: 2px solid #00ff00;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
