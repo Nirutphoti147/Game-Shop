@@ -12,11 +12,14 @@ main {
 
 body {
     font-family: 'Press Start 2P', cursive;
-    background:  url('img/bg.jpg') no-repeat center center fixed; /* Image Layer */
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-blend-mode: overlay; /* Optional: blend with a color */
+    background: 
+        url('img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
     color: #ffffff;
     font-size: 16px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0; /* Remove default margin */
 }
 
 header {
@@ -111,7 +114,7 @@ nav ul li a:hover {
     background: transparent; /* ใช้สีที่เข้มขึ้นและเพิ่มความโปร่งใส */
     margin: 20px auto;
     border-radius: 10px;
-    border: 4px dashed #ffffff;
+    border: 4px dashed #ffffff; 
     max-width: 1200px;
 }
 
@@ -262,7 +265,7 @@ footer {
     }
     
     h2 {
-        font-size: 1.8em; /* ลดขนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
+        font-size: 1.8em; /* ลดนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
         margin: 15px 0;
     }
 }
@@ -355,4 +358,16 @@ h2 {
     font-size: 24px;
     color: #ffffff;
     margin-right: 20px;
+}
+
+.store-name {
+    font-size: 24px; /* Default font size */
+    text-align: center;
+    margin: 10px 0;
+}
+
+@media (max-width: 767px) {
+    .store-name {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
 }
