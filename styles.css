@@ -35,15 +35,29 @@ nav {
     flex-wrap: wrap;
 }
 
+.logo-container {
+    text-align: center; /* Center the logo */
+}
+
 .logo-container h1 {
-    font-size: 3em;
+    font-size: 2.5em; /* Default size for desktop */
+    line-height: 1.2; /* Adjust line height for better alignment */
+    display: inline-flex; /* Use inline-flex for better alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Vertically center the icon with text */
+    margin: 0; /* Remove any default margin */
     color: #ffffff;
     text-align: center;
-    margin: 20px 0;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     animation: glow 1.5s infinite alternate;
     letter-spacing: 2px;
+}
+
+.logo-container i {
+    font-size: 1.5em; /* Default size for desktop */
+    margin-right: 10px; /* Add some space between the icon and text */
+    display: inline-block; /* Ensure the icon is inline with text */
 }
 
 /* Keyframes for glow effect */ 
@@ -214,7 +228,13 @@ footer {
     }
 
     .logo-container h1 {
-        font-size: 6vw;
+        font-size: 4vw; /* Smaller font size for mobile */
+        padding: 0 10px; /* Add padding to ensure proper spacing */
+    }
+
+    .logo-container i {
+        font-size: 7vw; /* Smaller icon size for mobile */
+        margin-right: 5px; /* Adjust space between icon and text */
     }
 
     nav ul {
