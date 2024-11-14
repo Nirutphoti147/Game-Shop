@@ -76,7 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(game);
         localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${game.name} has been added to your cart.`);
+
+        const alertBox = document.getElementById('custom-alert');
+        alertBox.textContent = `${game.name} added to your cart.`;
+        alertBox.classList.add('show');
+
+        setTimeout(() => {
+            alertBox.classList.remove('show');
+        }, 3000); // Alert disappears after 3 seconds
     }
 
     // Function to remove the last item from the cart
@@ -96,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleDropdown(event) {
         event.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้นของ anchor
         const dropdownContent = event.target.nextElementSibling;
-        if (window.innerWidth > 768) { // ตรวจสอบว่าความกว้างของหน้าจอมากกว่า 768px หรือไม่
+        if (window.innerWidth > 768) { // ตรวจสอบว่าความกว้���งของหน้าจอมากกว่า 768px หรือไม่
             if (dropdownContent.style.display === "block") {
                 dropdownContent.style.display = "none";
             } else {

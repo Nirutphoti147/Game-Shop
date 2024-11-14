@@ -12,14 +12,12 @@ main {
 
 body {
     font-family: 'Press Start 2P', cursive;
-    background: 
-        url('img/bg.jpg') no-repeat center center fixed;
+    background: url('img/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-blend-mode: overlay;
     color: #ffffff;
     font-size: 16px;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -111,9 +109,9 @@ nav ul li a:hover {
 }
 
 .featured-games {
-    padding: 50px 20px 100px;
+    padding: 50px 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+    background: rgba(0, 0, 0, 0.7);
     margin: 20px auto;
     border-radius: 10px;
     border: 4px dashed #ffffff;
@@ -372,4 +370,40 @@ h2 {
     .store-name {
         font-size: 18px; /* Smaller font size for mobile */
     }
+}
+
+@media (max-width: 767px) {
+    body {
+        background: url('img/bgmobile.jpg') no-repeat center center fixed; /* Mobile background */
+        background-size: cover;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        box-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+    }
+    50% {
+        box-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+}
+
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #29cf29;
+    color: #000000;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    animation: sparkle 1s infinite alternate; /* Sparkling animation */
+}
+
+.custom-alert.show {
+    display: block;
+    opacity: 1;
 }
