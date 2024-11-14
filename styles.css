@@ -1,6 +1,16 @@
 /* styles.css */
-body {
+body, html {
+    height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* This makes the main content take up the remaining space */
+}
+
+body {
     font-family: 'Press Start 2P', cursive;
     background: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(35, 14, 127) );
     color: #ffffff;
@@ -174,6 +184,10 @@ footer {
     padding: 15px 0;
     font-size: 14px;
     border-top: 4px solid #ffffff;
+    /* Ensure footer is at the bottom */
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 /* Media query for mobile devices */
 @media (max-width: 768px) {
