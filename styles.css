@@ -149,8 +149,8 @@ nav ul li a:hover {
     font-family: 'Press Start 2P', cursive;
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 0.1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 10px #fff700;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -166,7 +166,7 @@ nav ul li a:hover {
 
 .game-list-item:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7), 0 0 20px #ff00ff;
     background-color: #2a2a2a;
 }
 
@@ -387,7 +387,7 @@ h2 {
 
 @media (max-width: 767px) {
     body {
-        background: url('img/bgmobile.jpg') no-repeat center center fixed; /* Mobile background */
+        background: linear-gradient(to bottom, #15154e, #111129); /* Gradient from dark blue to blue */
         background-size: cover;
     }
 }
