@@ -49,10 +49,10 @@ nav {
 /* Keyframes for glow effect */ 
 @keyframes glow {
     from {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #00ff26, 0 0 20px #04ff00a7;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #ffaa00, 0 0 20px #ff0000a7;
     }
     to {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #00ff26, 0 0 50px #04ff00a7;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #ffaa00, 0 0 50px #ff0000a7;
     }
 }
 
