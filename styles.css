@@ -30,6 +30,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin: 20px;
+    margin-bottom: auto;
 }
 
 
@@ -45,12 +46,12 @@ nav {
 }
 
 .logo-container h1 {
-    font-size: 2.5em; /* Default size for desktop */
-    line-height: 1.2; /* Adjust line height for better alignment */
-    display: inline-flex; /* Use inline-flex for better alignment */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Vertically center the icon with text */
-    margin: 0; /* Remove any default margin */
+    font-size: 3em; /* เพิ่มขนาดของชื่อร้าน */
+    line-height: 1.2;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
     color: #ffffff;
     text-align: center;
     font-weight: bold;
@@ -59,31 +60,13 @@ nav {
     letter-spacing: 2px;
 }
 
-.logo-container i {
-    font-size: 1.5em; /* Default size for desktop */
-    margin-right: 10px; /* Add some space between the icon and text */
-    display: inline-block; /* Ensure the icon is inline with text */
-}
-
 /* Keyframes for glow effect */ 
 @keyframes glow {
-    0% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px red;
+    0%, 100% {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px #ff4500; /* สีส้มแดง */
     }
-    20% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px orange;
-    }
-    40% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px yellow;
-    }
-    60% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px green;
-    }
-    80% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px blue;
-    }
-    100% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px violet;
+    50% {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px #ff6347; /* สีส้มแดงอ่อน */
     }
 }
 
@@ -143,7 +126,7 @@ nav ul li a:hover {
     padding: 1px 20px;
     text-align: center;
     background: transparent); /* Gradient from orange to light orange */
-    margin: 20px auto;
+    margin:auto;
     max-width: 1420px;
 }
 
@@ -160,15 +143,14 @@ nav ul li a:hover {
     
 .game-list-item {
     background-color: #1a1a1a;
-    border: 3px solid transparent;
-    border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+    border: 3px solid rgb(255, 0, 0);
     padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     font-family: 'Roboto', sans-serif;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 0 10px #fff700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 0 10px #00ff2f;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -385,7 +367,7 @@ h1 {
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้กับ h1 */
     margin: 30px 0;
     text-transform: uppercase;
-    letter-spacing: 3px; /* เพิ่มระยะห่างระหว่างตัวอักษรสำหรบ h1 */
+    letter-spacing: 3px; /* เพิ่มระยะห่างะหว่างตัวอักษรสำหรบ h1 */
 }
 
 h2 {
@@ -470,6 +452,9 @@ h2 {
     overflow: hidden;
     position: relative;
     height: 400px;
+    border: 3px solid gold;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 5px rgba(29, 29, 29, 1.5);
 }
 
 .slides {
@@ -487,6 +472,14 @@ h2 {
 
 @media (max-width: 767px) {
     .slider {
-        height: 140px;
+        height: 130px;
     }
+}
+
+.navbar {
+    font-size: 0.8em; /* ลดขนาดของ navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
