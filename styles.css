@@ -1,5 +1,6 @@
 /* styles.css */
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     display: flex;
@@ -7,7 +8,8 @@ body, html {
 }
 
 main {
-    flex: 1; /* This makes the main content take up the remaining space */
+    flex: 1;
+    /* This makes the main content take up the remaining space */
 }
 
 body {
@@ -25,8 +27,10 @@ header {
     color: #ffffff;
     text-align: center;
     font-size: 18px;
-    font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
-    border-radius: 1px; /* Rounded corners for a softer look */
+    font-family: 'Press Start 2P', cursive;
+    /* Retro pixelated font */
+    border-radius: 1px;
+    /* Rounded corners for a softer look */
     text-transform: uppercase;
     letter-spacing: 3px;
     margin: 20px;
@@ -42,11 +46,13 @@ nav {
 }
 
 .logo-container {
-    text-align: center; /* Center the logo */
+    text-align: center;
+    /* Center the logo */
 }
 
 .logo-container h1 {
-    font-size: 3em; /* เพิ่มขนาดของชื่อร้าน */
+    font-size: 3em;
+    /* เพิ่มขนาดของชื่อร้าน */
     line-height: 1.2;
     display: inline-flex;
     justify-content: center;
@@ -60,13 +66,18 @@ nav {
     letter-spacing: 2px;
 }
 
-/* Keyframes for glow effect */ 
+/* Keyframes for glow effect */
 @keyframes glow {
-    0%, 100% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px #ff4500; /* สีส้มแดง */
+
+    0%,
+    100% {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px #ff4500;
+        /* สีส้มแดง */
     }
+
     50% {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px #ff6347; /* สีส้มแดงอ่อน */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px #ff6347;
+        /* สีส้มแดงอ่อน */
     }
 }
 
@@ -91,13 +102,15 @@ nav ul li a {
     display: flex;
     align-items: center;
     height: 100%;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; /* Constant glow */
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    /* Constant glow */
 }
 
 nav ul li a:hover {
     color: #ff00ff;
     transform: scale(1.1);
-    text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff; /* Enhanced glow on hover */
+    text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+    /* Enhanced glow on hover */
 }
 
 .dropdown-content {
@@ -125,8 +138,9 @@ nav ul li a:hover {
 .featured-games {
     padding: 1px 20px;
     text-align: center;
-    background: transparent); /* Gradient from orange to light orange */
-    margin:auto;
+    background: transparent);
+    /* Gradient from orange to light orange */
+    margin: auto;
     max-width: 1420px;
 }
 
@@ -137,10 +151,12 @@ nav ul li a:hover {
     justify-items: center;
     margin: 50px auto;
     padding: 0 20px;
-    max-width: 1200px; /* Set a maximum width for the game list */
-    height: auto; /* Allow the height to adjust based on content */
+    max-width: 1200px;
+    /* Set a maximum width for the game list */
+    height: auto;
+    /* Allow the height to adjust based on content */
 }
-    
+
 .game-list-item {
     background-color: #1a1a1a;
     border: 3px solid rgb(255, 0, 0);
@@ -180,8 +196,10 @@ nav ul li a:hover {
 
 .buy-now {
     margin-top: 5px;
-    padding: 10px 0; /* Adjust padding for height */
-    width: 100px; /* Set a fixed width for uniform size */
+    padding: 10px 0;
+    /* Adjust padding for height */
+    width: 100px;
+    /* Set a fixed width for uniform size */
     font-size: 1em;
     color: #ffffff;
     background-color: #ff0000;
@@ -192,9 +210,12 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     letter-spacing: 1px;
-    text-align: center; /* Center text */
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
+    text-align: center;
+    /* Center text */
+    margin-left: auto;
+    /* Center horizontally */
+    margin-right: auto;
+    /* Center horizontally */
 }
 
 .buy-now:hover {
@@ -215,6 +236,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     body {
@@ -222,13 +244,17 @@ footer {
     }
 
     .logo-container h1 {
-        font-size: 4vw; /* Smaller font size for mobile */
-        padding: 0 10px; /* Add padding to ensure proper spacing */
+        font-size: 4vw;
+        /* Smaller font size for mobile */
+        padding: 0 10px;
+        /* Add padding to ensure proper spacing */
     }
 
     .logo-container i {
-        font-size: 7vw; /* Smaller icon size for mobile */
-        margin-right: 5px; /* Adjust space between icon and text */
+        font-size: 7vw;
+        /* Smaller icon size for mobile */
+        margin-right: 5px;
+        /* Adjust space between icon and text */
     }
 
     nav ul {
@@ -276,23 +302,27 @@ footer {
 
     .buy-now {
         font-size: 0.9em;
-        padding: 15px 30px; /* Increase button size for better touch targets */
+        padding: 15px 30px;
+        /* Increase button size for better touch targets */
     }
 
     .hamburger {
-        display: block; /* Show hamburger icon on mobile */
+        display: block;
+        /* Show hamburger icon on mobile */
     }
 }
 
 /* Media query for smaller mobile screens */
 @media (max-width: 600px) {
     h1 {
-        font-size: 2.2em; /* ลดขนาดตัวอักษรสำหรับ h1 บนหน้าจอมือถือ */
+        font-size: 2.2em;
+        /* ลดขนาดตัวอักษรสำหรับ h1 บนหน้าจอมือถือ */
         margin: 20px 0;
     }
-    
+
     h2 {
-        font-size: 1.8em; /* ลดนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
+        font-size: 1.8em;
+        /* ลดนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
         margin: 15px 0;
     }
 }
@@ -355,23 +385,29 @@ footer {
     transform: translateY(-2px);
     box-shadow: 4px 4px 0 #000;
 }
+
 .search-container input::placeholder {
     font-family: 'Press Start 2P', cursive;
     font-size: 13px;
-    color: #888; /* Optional: Change the placeholder text color */
+    color: #888;
+    /* Optional: Change the placeholder text color */
 }
 
 h1 {
-    font-size: 3em; /* ขนาดตัวอักษรเริ่มต้นสำหรับ h1 */
+    font-size: 3em;
+    /* ขนาดตัวอักษรเริ่มต้นสำหรับ h1 */
     color: #ffcc00;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้กับ h1 */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    /* เพิ่มเงาให้กับ h1 */
     margin: 30px 0;
     text-transform: uppercase;
-    letter-spacing: 3px; /* เพิ่มระยะห่างะหว่างตัวอักษรสำหรบ h1 */
+    letter-spacing: 3px;
+    /* เพิ่มระยะห่างะหว่างตัวอักษรสำหรบ h1 */
 }
 
 h2 {
-    font-size: 1.5em; /* ขนาดตัวอักษรเริ่มต้นสำหรับ h2 */
+    font-size: 1.5em;
+    /* ขนาดตัวอักษรเริ่มต้นสำหรับ h2 */
     color: #ffcc00;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin: 20px 0;
@@ -388,23 +424,28 @@ h2 {
 }
 
 .store-name {
-    font-size: 24px; /* Default font size */
+    font-size: 24px;
+    /* Default font size */
     text-align: center;
     margin: 10px 0;
 }
 
 @media (max-width: 767px) {
     .store-name {
-        font-size: 18px; /* Smaller font size for mobile */
+        font-size: 18px;
+        /* Smaller font size for mobile */
     }
 }
 
 
 
 @keyframes sparkle {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
     }
+
     50% {
         box-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
     }
@@ -422,7 +463,8 @@ h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     transition: opacity 0.5s ease;
-    animation: sparkle 1s infinite alternate; /* Sparkling animation */
+    animation: sparkle 1s infinite alternate;
+    /* Sparkling animation */
 }
 
 .custom-alert.show {
@@ -477,7 +519,8 @@ h2 {
 }
 
 .navbar {
-    font-size: 0.8em; /* ลดขนาดของ navbar */
+    font-size: 0.8em;
+    /* ลดขนาดของ navbar */
     display: flex;
     justify-content: center;
     align-items: center;

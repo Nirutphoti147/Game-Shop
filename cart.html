@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - Retro Game Shop</title>
-    <meta name="description" content="View your cart at Retro Game Shop. Check out your selected retro games and consoles.">
+    <meta name="description"
+        content="View your cart at Retro Game Shop. Check out your selected retro games and consoles.">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-
-        
         main {
             flex: 1;
         }
+
         .cart {
             max-width: 800px;
             margin: 50px auto;
@@ -22,14 +23,17 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
         }
+
         .cart h2 {
             text-align: center;
             margin-bottom: 20px;
             color: #ff4e6c;
         }
+
         .cart-items {
             margin-bottom: 20px;
         }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
@@ -37,26 +41,32 @@
             padding: 10px 0;
             border-bottom: 1px solid #e94560;
         }
+
         .cart-item:last-child {
             border-bottom: none;
         }
+
         .cart-item img {
             width: 80px;
             height: auto;
             border-radius: 4px;
         }
+
         .cart-item-details {
             flex: 1;
             margin-left: 20px;
         }
+
         .cart-item-title {
             font-size: 16px;
             font-weight: bold;
             color: #eaeaea;
         }
+
         .cart-item-price {
             color: #e94560;
         }
+
         .remove-button {
             background-color: #ff0000;
             color: #ffff00;
@@ -69,19 +79,23 @@
             font-family: 'Press Start 2P', cursive;
             box-shadow: 2px 2px 0 #000;
         }
+
         .remove-button:hover {
             background-color: #26ff00;
             transform: translateY(-2px);
             box-shadow: 4px 4px 0 #000;
         }
+
         .cart-summary {
             text-align: right;
             font-family: 'Press Start 2P', cursive;
         }
+
         .cart-summary p {
             font-size: 18px;
             margin: 10px 0;
         }
+
         .checkout-button {
             background-color: #ff0000;
             color: #ffff00;
@@ -94,15 +108,18 @@
             font-family: 'Press Start 2P', cursive;
             box-shadow: 2px 2px 0 #000;
         }
+
         .checkout-button:hover {
             background-color: #69ff66;
             transform: translateY(-2px);
             box-shadow: 4px 4px 0 #000;
         }
+
         .quantity-controls {
             display: flex;
             align-items: center;
         }
+
         .quantity-input {
             width: 50px;
             text-align: center;
@@ -115,11 +132,13 @@
             -moz-appearance: textfield;
             font-family: 'Press Start 2P', cursive;
         }
+
         .quantity-input::-webkit-outer-spin-button,
         .quantity-input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
+
         .quantity-button {
             background-color: #ffee00;
             color: #001aff;
@@ -135,26 +154,29 @@
             font-family: 'Press Start 2P', cursive;
             box-shadow: 2px 2px 0 #000;
         }
+
         .quantity-button:hover {
             background-color: #ff66ff;
             transform: translateY(-2px);
             box-shadow: 4px 4px 0 #000;
         }
-       
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="logo-container">
-            <h1><i class="fas fa-gamepad"></i> Retro Game Shop</h1>
+            <h1>Retro Game Shop</h1>
         </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
+        <nav class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#" class="navbar-item">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Consoles</a>
+                    <a href="#" class="navbar-item dropbtn" onclick="toggleDropdown(event)">Consoles</a>
                     <div class="dropdown-content">
                         <a href="#">Nintendo</a>
                         <a href="#">PlayStation</a>
@@ -163,7 +185,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Categories</a>
+                    <a href="#" class="navbar-item dropbtn">Categories</a>
                     <div class="dropdown-content">
                         <a href="#">Arcade</a>
                         <a href="#">Puzzle</a>
@@ -171,7 +193,9 @@
                         <a href="#">Fighting</a>
                     </div>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="navbar-item">Contact</a></li>
+                <li class="cart-item"><a href="cart.html" class="navbar-item cart-button"><i
+                            class="fas fa-shopping-cart"></i> Cart</a></li>
             </ul>
         </nav>
     </header>
@@ -279,4 +303,5 @@
         });
     </script>
 </body>
-</html> 
+
+</html>

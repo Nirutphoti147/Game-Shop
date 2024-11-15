@@ -1,120 +1,160 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Game Shop</title>
-    <meta name="description" content="Discover the best retro games at Retro Game Shop. Shop now for classic games and consoles.">
+    <meta name="description"
+        content="Discover the best retro games at Retro Game Shop. Shop now for classic games and consoles.">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   
+
 </head>
-    <style>
-        
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+<style>
+    main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .contact-container {
+        max-width: 600px;
+        width: 100%;
+        background-color: #16213e;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-container h2 {
+        text-align: center;
+        color: #e94560;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .contact-methods {
+        margin-bottom: 20px;
+    }
+
+    .contact-methods p {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    .contact-methods a {
+        color: #ff00ff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .contact-methods a:hover {
+        color: #ff66ff;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form label {
+        margin-bottom: 5px;
+        color: #eaeaea;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        background-color: #1a1a2e;
+        color: #eaeaea;
+        border: 1px solid #e94560;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-family: 'Press Start 2P', cursive;
+    }
+
+    .contact-form button {
+        background-color: #ff00ff;
+        color: #ffff00;
+        border: 2px solid #000;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s, transform 0.3s;
+        font-family: 'Press Start 2P', cursive;
+        box-shadow: 2px 2px 0 #000;
+    }
+
+    .contact-form button:hover {
+        background-color: #ff66ff;
+        transform: translateY(-2px);
+        box-shadow: 4px 4px 0 #000;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
         .contact-container {
-            max-width: 600px;
-            width: 100%;
-            background-color: #16213e;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            padding: 15px;
         }
+
         .contact-container h2 {
-            text-align: center;
-            color: #e94560;
-            margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 20px;
         }
-        .contact-methods {
-            margin-bottom: 20px;
-        }
+
         .contact-methods p {
-            margin: 10px 0;
-            font-size: 14px;
+            font-size: 12px;
         }
-        .contact-methods a {
-            color: #ff00ff;
-            text-decoration: none;
-            transition: color 0.3s;
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 8px;
         }
-        .contact-methods a:hover {
-            color: #ff66ff;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form label {
-            margin-bottom: 5px;
-            color: #eaeaea;
-        }
-        .contact-form input, .contact-form textarea {
-            background-color: #1a1a2e;
-            color: #eaeaea;
-            border: 1px solid #e94560;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 15px;
-            font-family: 'Press Start 2P', cursive;
-        }
+
         .contact-form button {
-            background-color: #ff00ff;
-            color: #ffff00;
-            border: 2px solid #000;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s, transform 0.3s;
-            font-family: 'Press Start 2P', cursive;
-            box-shadow: 2px 2px 0 #000;
+            padding: 8px;
         }
-        .contact-form button:hover {
-            background-color: #ff66ff;
-            transform: translateY(-2px);
-            box-shadow: 4px 4px 0 #000;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .contact-container {
-                padding: 15px;
-            }
-            .contact-container h2 {
-                font-size: 20px;
-            }
-            .contact-methods p {
-                font-size: 12px;
-            }
-            .contact-form input, .contact-form textarea {
-                padding: 8px;
-            }
-            .contact-form button {
-                padding: 8px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
+
 <body>
 
     <header>
         <div class="logo-container">
-            <h1><i class="fas fa-gamepad"></i> Retro Game Shop</h1>
+            <h1>Retro Game Shop</h1>
         </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="cart-item"><a href="cart.html" class="cart-button"><i class="fas fa-shopping-cart"></i> Cart</a></li>
-
+        <nav class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#" class="navbar-item">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="navbar-item dropbtn" onclick="toggleDropdown(event)">Consoles</a>
+                    <div class="dropdown-content">
+                        <a href="#">Nintendo</a>
+                        <a href="#">PlayStation</a>
+                        <a href="#">Gameboy</a>
+                        <a href="#">All</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="navbar-item dropbtn">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="#">Arcade</a>
+                        <a href="#">Puzzle</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Fighting</a>
+                    </div>
+                </li>
+                <li><a href="contact.html" class="navbar-item">Contact</a></li>
+                <li class="cart-item"><a href="cart.html" class="navbar-item cart-button"><i
+                            class="fas fa-shopping-cart"></i> Cart</a></li>
             </ul>
         </nav>
     </header>
@@ -123,11 +163,11 @@
         <div class="contact-container">
             <h2>Contact Us</h2><br>
             <div class="contact-methods">
-                <p><strong>Facebook:</strong> <a href="#" >Retro Game Shop</a></p><br>
-                <p><strong>Line:</strong> <a href="#" >@retrogameshop</a></p><br>
+                <p><strong>Facebook:</strong> <a href="#">Retro Game Shop</a></p><br>
+                <p><strong>Line:</strong> <a href="#">@retrogameshop</a></p><br>
                 <p><strong>Phone:</strong> <a href="#">+1 234 567 890</a></p><br>
             </div>
-            
+
         </div>
     </main>
 
@@ -137,4 +177,5 @@
     </footer>
 
 </body>
-</html> 
+
+</html>
