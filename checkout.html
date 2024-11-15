@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta name="description"
+        content="View your cart at Retro Game Shop. Check out your selected retro games and consoles.">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชำระเงิน</title>
+   
+</head>
+<header>
+    <div class="logo-container">
+        <h1>Retro Game Shop</h1>
+    </div>
+    <nav class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul id="nav-links">
+            <li><a href="index.html" class="navbar-item">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="navbar-item dropbtn" onclick="toggleDropdown(event)">Consoles</a>
+                <div class="dropdown-content">
+                    <a href="#">Nintendo</a>
+                    <a href="#">PlayStation</a>
+                    <a href="#">Gameboy</a>
+                    <a href="#">All</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="navbar-item dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="#">Arcade</a>
+                    <a href="#">Puzzle</a>
+                    <a href="#">Adventure</a>
+                    <a href="#">Fighting</a>
+                </div>
+            </li>
+            <li><a href="contact.html" class="navbar-item">Contact</a></li>
+            <li class="cart-item"><a href="cart.html" class="navbar-item cart-button"><i
+                        class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <h1>เลือกแพ็คเกจ</h1>
+    
+    <div class="package-grid">
+        <!-- Premium Package -->
+        <div class="card">
+            <h2>Premium Package</h2>
+            <p>แพ็คเกจพรีเมียม พร้อมฟีเจอร์ครบครัน</p>
+            <div class="price">฿1,000</div>
+            <div class="quantity">
+                <label>จำนวน:</label>
+                <input type="number" id="quantity-premium" value="0" min="0" onchange="updateTotal()">
+            </div>
+        </div>
+
+        <!-- Standard Package -->
+        <div class="card">
+            <h2>Standard Package</h2>
+            <p>แพ็คเกจมาตรฐาน คุ้มค่าคุ้มราคา</p>
+            <div class="price">฿500</div>
+            <div class="quantity">
+                <label>จำนวน:</label>
+                <input type="number" id="quantity-standard" value="0" min="0" onchange="updateTotal()">
+            </div>
+        </div>
+
+        <!-- Basic Package -->
+        <div class="card">
+            <h2>Basic Package</h2>
+            <p>แพ็คเกจพื้นฐาน เริ่มต้นใช้งานง่าย</p>
+            <div class="price">฿300</div>
+            <div class="quantity">
+                <label>จำนวน:</label>
+                <input type="number" id="quantity-basic" value="0" min="0" onchange="updateTotal()">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>สรุปรายการ</h3>
+        <div id="total" class="price">฿0</div>
+        <input type="email" id="email" placeholder="กรุณากรอกอีเมล">
+        <button onclick="pay()" id="payButton">ชำระเงิน</button>
+        <div id="loading">กำลังดำเนินการ...</div>
+        <div id="error"></div>
+    </div>
+
+    <script>
+        const packages = {
+            premium: { name: "Premium Package", price: 1000, description: "แพ็คเกจพรีเมียม พร้อมฟีเจอร์ครบครัน" },
+            standard: { name: "Standard Package", price: 500, description: "แพ็คเกจมาตรฐาน คุ้มค่าคุ้มราคา" },
+            basic: { name: "Basic Package", price: 300, description: "แพ็คเกจพื้นฐาน เริ่มต้นใช้งานง่าย" }
+        };
+
+        function updateTotal() {
+            const premium = parseInt(document.getElementById('quantity-premium').value) || 0;
+            const standard = parseInt(document.getElementById('quantity-standard').value) || 0;
+            const basic = parseInt(document.getElementById('quantity-basic').value) || 0;
+
+            const total = (premium * packages.premium.price) + 
+                         (standard * packages.standard.price) + 
+                         (basic * packages.basic.price);
+
+            document.getElementById('total').textContent = `฿${total.toLocaleString()}`;
+            
+            // ปิดปุ่มถ้าไม่มีการเลือกสินค้า
+            document.getElementById('payButton').disabled = total === 0;
+        }
+
+        async function pay() {
+            const email = document.getElementById('email').value;
+            const premium = parseInt(document.getElementById('quantity-premium').value) || 0;
+            const standard = parseInt(document.getElementById('quantity-standard').value) || 0;
+            const basic = parseInt(document.getElementById('quantity-basic').value) || 0;
+
+            const items = [];
+            
+            if (premium > 0) {
+                items.push({
+                    name: packages.premium.name,
+                    description: packages.premium.description,
+                    price: packages.premium.price,
+                    quantity: premium
+                });
+            }
+            
+            if (standard > 0) {
+                items.push({
+                    name: packages.standard.name,
+                    description: packages.standard.description,
+                    price: packages.standard.price,
+                    quantity: standard
+                });
+            }
+            
+            if (basic > 0) {
+                items.push({
+                    name: packages.basic.name,
+                    description: packages.basic.description,
+                    price: packages.basic.price,
+                    quantity: basic
+                });
+            }
+
+            const button = document.getElementById('payButton');
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+
+            error.style.display = 'none';
+            button.disabled = true;
+            loading.style.display = 'block';
+
+            try {
+                const response = await fetch('https://tools.mbasic.io/create-payment-link', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        items: items,
+                        customerEmail: email
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    window.open(data.paymentUrl, '_blank');
+                } else {
+                    throw new Error(data.error || 'เกิดข้อผิดพลาด');
+                }
+            } catch (err) {
+                error.textContent = err.message;
+                error.style.display = 'block';
+            } finally {
+                button.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+
+        // เริ่มต้นปิดปุ่มชำระเงิน
+        updateTotal();
+    </script>
+</body>
+</html>
