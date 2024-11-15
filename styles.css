@@ -12,21 +12,26 @@ main {
 
 body {
     font-family: 'Press Start 2P', cursive;
-    background: url('img/bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #ffffff;
     font-size: 16px;
+    color: #ffffff;
     margin: 0;
     padding: 0;
+    background: url('img/bg.jpg') center center / cover no-repeat fixed;
+    /* ใช้ shorthand สำหรับ background เพื่อความกระชับ */
 }
 
 header {
-    background: transparent;
-    color: #00ff00;
+    padding: 30px;
+    color: #ffffff;
     text-align: center;
-    padding: 20px 0;
-    border-bottom: 4px solid #ffffff;
-}   
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive; /* Retro pixelated font */
+    border-radius: 1px; /* Rounded corners for a softer look */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 20px;
+}
+
 
 nav {
     display: flex;
@@ -135,13 +140,11 @@ nav ul li a:hover {
 }
 
 .featured-games {
-    padding: 50px 20px;
+    padding: 1px 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.7);
+    background: transparent); /* Gradient from orange to light orange */
     margin: 20px auto;
-    border-radius: 10px;
-    border: 4px dashed #ffffff;
-    max-width: 1200px;
+    max-width: 1420px;
 }
 
 .game-list {
@@ -151,28 +154,33 @@ nav ul li a:hover {
     justify-items: center;
     margin: 50px auto;
     padding: 0 20px;
+    max-width: 1200px; /* Set a maximum width for the game list */
+    height: auto; /* Allow the height to adjust based on content */
 }
     
 .game-list-item {
     background-color: #1a1a1a;
     border: 3px solid transparent;
     border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
-    padding: 20px;
-    text-align: center;
+    padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Roboto', sans-serif;
     position: relative;
     overflow: hidden;
-    border-radius: 0.1px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 10px #fff700;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 0 10px #fff700;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    height: 100%;
+    width: 250px;
+    height: 350px;
+    font-size: 0.8em;
+    text-align: center;
 }
 
 .game-list-item img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     margin-bottom: 10px;
     transition: transform 0.3s;
@@ -189,18 +197,22 @@ nav ul li a:hover {
 }
 
 .buy-now {
-    margin-top: 10px;
-    padding: 12px 24px;
+    margin-top: 5px;
+    padding: 10px 0; /* Adjust padding for height */
+    width: 100px; /* Set a fixed width for uniform size */
     font-size: 1em;
     color: #ffffff;
     background-color: #ff0000;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     letter-spacing: 1px;
+    text-align: center; /* Center text */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
 }
 
 .buy-now:hover {
@@ -308,8 +320,8 @@ footer {
 }
 
 .cart-button {
-    color: #ffffff;
-    background-color: #ff0000;
+    color: #000000;
+    background-color: #ffffff;
     padding: 10px 20px;
     border-radius: 25px;
     text-decoration: none;
@@ -324,7 +336,7 @@ footer {
 }
 
 .cart-button:hover {
-    background-color: #00ff11;
+    background-color: #000000;
     transform: scale(1.1);
 }
 
@@ -373,7 +385,7 @@ h1 {
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้กับ h1 */
     margin: 30px 0;
     text-transform: uppercase;
-    letter-spacing: 3px; /* เพิ่มระยะห่างระหว่างตัวอักษรสำหรับ h1 */
+    letter-spacing: 3px; /* เพิ่มระยะห่างระหว่างตัวอักษรสำหรบ h1 */
 }
 
 h2 {
@@ -405,12 +417,7 @@ h2 {
     }
 }
 
-@media (max-width: 767px) {
-    body {
-        background: linear-gradient(to bottom, #15154e, #111129); /* Gradient from dark blue to blue */
-        background-size: cover;
-    }
-}
+
 
 @keyframes sparkle {
     0%, 100% {
@@ -439,4 +446,47 @@ h2 {
 .custom-alert.show {
     display: block;
     opacity: 1;
+}
+
+.game-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.game-details h3 {
+    margin: 3px 0;
+}
+
+.game-price {
+    margin-top: 3px;
+}
+
+.slider {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+    .slider {
+        height: 140px;
+    }
 }

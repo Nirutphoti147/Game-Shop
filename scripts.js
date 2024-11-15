@@ -55,14 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const gameItem = document.createElement('div');
         gameItem.className = 'game-list-item';
         gameItem.innerHTML = `
-            <img src="${game.imageUrl}" alt="${game.name}" style="width:100%; height:auto; border-radius:8px; margin-bottom:10px;">
-            <h3>${game.name}</h3>
-            <p>${game.description}</p>
-            <div class="game-price">
-                <p class="price-label"><strong>Price</strong></p>
-                <p class="price-value">${game.price}</p>
+            <img src="${game.imageUrl}" alt="${game.name}" style="border-radius:8px;">
+            <div class="game-details">
+                <h3>${game.name}</h3>
+                <p>${game.description}</p>
+                <div class="game-price">
+                    <span class="price-label"><strong></strong></span>
+                    <span class="price-value">${game.price}</span>
+                </div>
+                <button class="buy-now">BUY</button>
             </div>
-            <button class="buy-now">BUY</button>
         `;
         gameList.appendChild(gameItem);
 
@@ -86,57 +88,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000); // Alert disappears after 3 seconds
     }
 
-    // Function to remove the last item from the cart
-    function removeLastItem() {
-        if (cart.length > 0) {
-            cart.pop();
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log('Last item removed. Current cart:', cart);
-        } else {
-            console.log('Cart is already empty.');
-        }
-    }
-
-    // Example usage
-    removeLastItem(); // ลบรายการสุดท้าย
-
     function toggleDropdown(event) {
-        event.preventDefault(); // ป้องกันพฤติกรรมเริ่มต้นของ anchor
+        event.preventDefault(); // Prevent default anchor behavior
         const dropdownContent = event.target.nextElementSibling;
-        if (window.innerWidth > 768) { // ตรวจสอบว่าความกว้���งของหน้าจอมากกว่า 768px หรือไม่
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
+        if (window.innerWidth > 768) { // Check if screen width is greater than 768px
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         } else {
-            // สำหรับมือถือ toggle dropdown content
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
+            // Toggle dropdown content for mobile
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         }
     }
 
     function toggleMenu() {
-        if (window.innerWidth > 768) { // toggle เมนูเฉพาะเมื่อความกว้างของหน้าจอมากกว่า 768px
+        if (window.innerWidth > 768) { // Toggle menu only when screen width is greater than 768px
             const navLinks = document.getElementById('nav-links');
-            if (navLinks.style.display === "block") {
-                navLinks.style.display = "none";
-            } else {
-                navLinks.style.display = "block";
-            }
+            navLinks.style.display = navLinks.style.display === "block" ? "none" : "block";
         }
     }
 
-    document.addEventListener("click", function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            const dropdowns = document.querySelectorAll('.dropdown-content');
-            dropdowns.forEach(dropdown => {
-                dropdown.style.display = "none";
-            });
-        }
-    });
+    // Slideshow functionality
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
 
+    function showSlide(index) {
+        const slidesContainer = document.querySelector('.slides');
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
 });

@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Game Shop</title>
-    <meta name="description" content="Discover the best retro games at Retro Game Shop. Shop now for classic games and consoles.">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
     <header>
         <div class="logo-container">
             <h1><i class="fas fa-gamepad"></i> Retro Game Shop</h1>
         </div>
-
         <nav class="navbar">
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
@@ -46,7 +43,6 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="featured-games">
             <h2>Featured Games</h2>
@@ -55,20 +51,24 @@
                 <input type="text" id="search-input" placeholder="Search game...">
                 <button onclick="searchGame()">Search</button>
             </div>
-            <br>
+            <div class="slider">
+                <div class="slides">
+                    <img src="img/slide1.jpg" alt="Slide 1">
+                    <img src="img/slide2.jpg" alt="Slide 2">
+                    <img src="img/slide3.jpg" alt="Slide 3">
+                    <img src="img/slide4.jpg" alt="Slide 4">
+                </div>
+            </div>
             <div class="game-list" id="game-list">
                 <!-- Products will be added by JavaScript -->
             </div>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2023 Retro Game Shop.</p>
         <p>All rights reserved.</p>
     </footer>
-
     <script src="scripts.js"></script>
-    
     <div id="custom-alert" class="custom-alert"></div>
 </body>
 </html>
