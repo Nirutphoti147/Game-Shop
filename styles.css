@@ -529,3 +529,253 @@ h2 {
     align-items: center;
     flex-wrap: wrap;
 }
+
+
+.contact-container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #e94560;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.contact-methods {
+    margin-bottom: 20px;
+}
+
+.contact-methods p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.contact-methods a {
+    color: #ff00ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-methods a:hover {
+    color: #ff66ff;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    color: #eaeaea;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    border: 1px solid #e94560;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.contact-form button {
+    background-color: #ff00ff;
+    color: #ffff00;
+    border: 2px solid #000;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.contact-form button:hover {
+    background-color: #ff66ff;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 15px;
+    }
+
+    .contact-container h2 {
+        font-size: 20px;
+    }
+
+    .contact-methods p {
+        font-size: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+    }
+
+    .contact-form button {
+        padding: 8px;
+    }
+}
+
+
+.cart {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #16213e;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.cart h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff4e6c;
+}
+
+.cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e94560;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cart-item-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #eaeaea;
+}
+
+.cart-item-price {
+    color: #e94560;
+}
+
+.remove-button {
+    background-color: #ff0000;
+    color: #ffff00;
+    border: 2px solid #000;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.remove-button:hover {
+    background-color: #26ff00;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.cart-summary {
+    text-align: right;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.cart-summary p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.checkout-button {
+    background-color: #ff0000;
+    color: #ffff00;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.checkout-button:hover {
+    background-color: #69ff66;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    color: #eaeaea;
+    background-color: #1a1a2e;
+    border: 1px solid #e94560;
+    border-radius: 4px;
+    margin: 0 5px;
+    padding: 5px;
+    -moz-appearance: textfield;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-button {
+    background-color: #ffee00;
+    color: #001aff;
+    border: 2px solid #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.quantity-button:hover {
+    background-color: #ff66ff;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 #000;
+}
