@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Success - Retro Game Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Payment Success</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+        .success-message {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Retro Game Shop</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="success-message">
-            <h2>Payment Successful!</h2>
-            <p>Thank you for your purchase. Your transaction has been completed successfully.</p>
-            <p>You will receive an email confirmation shortly.</p>
-            <a href="index.html" class="button">Return to Home</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Retro Game Shop. All rights reserved.</p>
-    </footer>
+    <section class="success-message">
+        <h2>Payment Successful!</h2>
+        <p>Thank you for your purchase. Your transaction has been completed successfully.</p>
+        <p>You will receive an email confirmation shortly.</p>
+        <a href="index.html" class="button">Return to Home</a>
+    </section>
 </body>
 </html>
