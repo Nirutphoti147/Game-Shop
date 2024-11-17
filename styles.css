@@ -332,8 +332,8 @@ footer {
 }
 
 .cart-button {
-    color: #000000;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #ff0000;
     padding: 10px 20px;
     border-radius: 25px;
     text-decoration: none;
