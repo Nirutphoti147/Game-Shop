@@ -13,19 +13,65 @@
     <title>ประวัติการสั่งซื้อ</title>
     <style>
         .order-card {
-            border: 1px solid #ddd;
-            padding: 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #444;
+            padding: 10px;
             margin: 10px 0;
-            border-radius: 8px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
         }
         .order-items {
-            margin-top: 10px;
+            margin-top: 15px;
         }
         .item {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        strong {
+            color: #ffcc00;
+        }
+        .loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #3b3b3b;
+            z-index: 1000;
+            text-align: center;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        .dots span {
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #383838;
+            animation: bounce 0.6s infinite alternate;
+        }
+        .dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        p {
+            margin-top: 10px;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -69,7 +115,17 @@
     <input type="hidden" id="domain" value="https://nirutphoti147.github.io/Game-Shop">
     
     <h1>ประวัติการสั่งซื้อ</h1>
-    <div id="orders-container"></div>
+    <div id="loading" class="loading-spinner">
+        <p>Loading</p>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="order-container" style="display: none;">
+        <div id="orders-container"></div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -124,6 +180,9 @@
                 console.error('Error fetching orders:', error);
                 document.getElementById('orders-container').innerHTML = 
                     '<p style="color: red;">ไม่สามารถโหลดข้อมูลประวัติการสั่งซื้อได้</p>';
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('order-container').style.display = 'block';
             }
         });
     </script>
