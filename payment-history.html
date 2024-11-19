@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cart - Retro Game Shop</title>
+        <meta name="description"
+            content="View your cart at Retro Game Shop. Check out your selected retro games and consoles.">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>ประวัติการสั่งซื้อ</title>
     <style>
         .order-card {
@@ -23,6 +30,42 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="logo-container">
+            <h1>Retro Game Shop</h1>
+        </div>
+        <nav class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html" class="navbar-item">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="navbar-item dropbtn" onclick="toggleDropdown(event)">Consoles</a>
+                    <div class="dropdown-content">
+                        <a href="#">Nintendo</a>
+                        <a href="#">PlayStation</a>
+                        <a href="#">Gameboy</a>
+                        <a href="#">All</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="navbar-item dropbtn">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="#">Arcade</a>
+                        <a href="#">Puzzle</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Fighting</a>
+                    </div>
+                </li>
+                <li><a href="contact.html" class="navbar-item">Contact</a></li>
+                <li><a href="payment-history.html" class="navbar-item">History</a></li>
+                <li class="cart-item"><a href="cart.html" class="navbar-item cart-button"><i
+                            class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+        </nav>
+
+    
     <input type="hidden" id="domain" value="https://nirutphoti147.github.io/Game-Shop">
     
     <h1>ประวัติการสั่งซื้อ</h1>
