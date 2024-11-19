@@ -1,102 +1,88 @@
 <!DOCTYPE html>
-<html lang="th">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Game Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>ประวัติการสั่งซื้อ</title>
     <style>
-        /* Simple loading spinner */
-        .loading {
-            display: none;
-            font-size: 1.2em;
-            text-align: center;
-            margin-top: 20px;
+        .order-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .order-items {
+            margin-top: 10px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <div class="logo-container">
-            <h1>Retro Game Shop</h1>
-        </div>
-        <nav class="navbar">
-            <div class="hamburger" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul id="nav-links">
-                <li><a href="#" class="navbar-item">Home</a></li>
-                <li class="dropdown">
-                    <a href="#" class="navbar-item dropbtn" onclick="toggleDropdown(event)">Consoles</a>
-                    <div class="dropdown-content">
-                        <a href="#">Nintendo</a>
-                        <a href="#">PlayStation</a>
-                        <a href="#">Gameboy</a>
-                        <a href="#">All</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="navbar-item dropbtn">Categories</a>
-                    <div class="dropdown-content">
-                        <a href="#">Arcade</a>
-                        <a href="#">Puzzle</a>
-                        <a href="#">Adventure</a>
-                        <a href="#">Fighting</a>
-                    </div>
-                </li>
-                <li><a href="contact.html" class="navbar-item">Contact</a></li>
-                <li class="cart-item"><a href="cart.html" class="navbar-item cart-button"><i
-                            class="fas fa-shopping-cart"></i> Cart</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div id="loading" class="loading">Loading...</div>
-        <div id="payment-history-container">
-            <!-- Payment history will be displayed here -->
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Retro Game Shop. All rights reserved.</p>
-    </footer>
+    <input type="hidden" id="domain" value="https://nirutphoti147.github.io/Game-Shop">
+    
+    <h1>ประวัติการสั่งซื้อ</h1>
+    <div id="orders-container"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const paymentHistoryContainer = document.getElementById('payment-history-container');
-            const loadingIndicator = document.getElementById('loading');
-            const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
-
-            // Show loading indicator
-            loadingIndicator.style.display = 'block';
-
-            setTimeout(() => { // Simulate loading delay
-                if (paymentHistory.length > 0) {
-                    paymentHistory.forEach(payment => {
-                        const paymentDiv = document.createElement('div');
-                        paymentDiv.className = 'payment-item';
-                        paymentDiv.innerHTML = `
-                            <p>Transaction ID: ${payment.transactionId}</p>
-                            <p>Amount: ${payment.amount}</p>
-                            <p>Date: ${new Date(payment.date).toLocaleDateString()}</p>
-                        `;
-                        paymentHistoryContainer.appendChild(paymentDiv);
-                    });
-                } else {
-                    paymentHistoryContainer.innerHTML = '<p>No payment history available.</p>';
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const domain = document.getElementById('domain').value;
+                const response = await fetch('https://tools.mbasic.io/payments?domain=https://nirutphoti147.github.io/Game-Shop');
+                const data = await response.json();
+                
+                const container = document.getElementById('orders-container');
+                
+                if (!data.success || !data.payments || data.payments.length === 0) {
+                    container.innerHTML = '<p>ไม่พบประวัติการสั่งซื้อ</p>';
+                    return;
                 }
-
-                // Hide loading indicator
-                loadingIndicator.style.display = 'none';
-            }, 1000); // Adjust the delay as needed
+                
+                data.payments.forEach(payment => {
+                    const orderElement = document.createElement('div');
+                    orderElement.className = 'order-card';
+                    
+                    const statusColor = payment.status === 'paid' ? 'green' : 'orange';
+                    const statusText = payment.status === 'paid' ? 'ชำระเงินแล้ว' : 'รอชำระเงิน';
+                    
+                    orderElement.innerHTML = `
+                        <div>
+                            <strong>วันที่สั่งซื้อ:</strong> ${new Date(payment.created_at).toLocaleString('th-TH')}
+                        </div>
+                        <div>
+                            <strong>สถานะ:</strong> <span style="color: ${statusColor}">${statusText}</span>
+                        </div>
+                        ${payment.customer_email ? `
+                            <div>
+                                <strong>อีเมล:</strong> ${payment.customer_email}
+                            </div>
+                        ` : ''}
+                        <div class="order-items">
+                            <strong>รายการสินค้า:</strong>
+                            ${payment.items.map(item => `
+                                <div class="item">
+                                    <span>${item.name} x ${item.quantity}</span>
+                                    <span>${item.unit_price.toLocaleString('th-TH')} บาท</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <strong>ยอดรวม:</strong> ${payment.total_amount.toLocaleString('th-TH')} บาท
+                        </div>
+                    `;
+                    
+                    container.appendChild(orderElement);
+                });
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+                document.getElementById('orders-container').innerHTML = 
+                    '<p style="color: red;">ไม่สามารถโหลดข้อมูลประวัติการสั่งซื้อได้</p>';
+            }
         });
     </script>
 </body>
-
 </html>
