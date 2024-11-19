@@ -335,6 +335,11 @@ footer {
     .game-card {
         width: 100%;
     }
+
+    .game-list-item img {
+        width: 55%;
+        height: auto;
+    }
 }
 
 .cart-item {
