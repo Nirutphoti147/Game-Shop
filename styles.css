@@ -178,9 +178,8 @@ nav ul li a:hover {
 }
 
 .game-list-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 80%;
+    height: auto;
     margin-bottom: 10px;
     transition: transform 0.3s;
 }
@@ -812,7 +811,7 @@ h2 {
 .order-items {
     margin-top: 15px;
     overflow: hidden; /* ป้องกันการแสดงผลเกิน */
-    word-wrap: break-word; /* เพิ่มเพื่อให้ข้อความยาวข��้นบรรทัดใหม่ */
+    word-wrap: break-word; /* เพิ่มเพื่อให้ข้อความยาวขึ้นบรรทัดใหม่ */
 }
 .item {
     display: flex;
