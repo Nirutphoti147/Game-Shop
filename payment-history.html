@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Game Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>Retro Game Shop</h1>
+        </div>
+        <nav class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#" class="navbar-item">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="navbar-item dropbtn" onclick="toggleDropdown(event)">Consoles</a>
+                    <div class="dropdown-content">
+                        <a href="#">Nintendo</a>
+                        <a href="#">PlayStation</a>
+                        <a href="#">Gameboy</a>
+                        <a href="#">All</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="navbar-item dropbtn">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="#">Arcade</a>
+                        <a href="#">Puzzle</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Fighting</a>
+                    </div>
+                </li>
+                <li><a href="contact.html" class="navbar-item">Contact</a></li>
+                <li class="cart-item"><a href="cart.html" class="navbar-item cart-button"><i
+                            class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="payment-history-container">
+            <!-- Payment history will be displayed here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Retro Game Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentHistoryContainer = document.getElementById('payment-history-container');
+            const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
+
+            if (paymentHistory.length > 0) {
+                paymentHistory.forEach(payment => {
+                    const paymentDiv = document.createElement('div');
+                    paymentDiv.className = 'payment-item';
+                    paymentDiv.innerHTML = `
+                        <p>Transaction ID: ${payment.transactionId}</p>
+                        <p>Amount: ${payment.amount}</p>
+                        <p>Date: ${new Date(payment.date).toLocaleDateString()}</p>
+                    `;
+                    paymentHistoryContainer.appendChild(paymentDiv);
+                });
+            } else {
+                paymentHistoryContainer.innerHTML = '<p>No payment history available.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>
