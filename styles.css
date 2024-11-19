@@ -171,8 +171,8 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 250px;
-    height: 350px;
+    width: 270px;
+    height: 370px;
     font-size: 0.8em;
     text-align: center;
 }
@@ -324,6 +324,16 @@ footer {
         font-size: 1.5em;
         /* ลดนาดตัวอักษรสำหรับ h2 บนหน้าจอมือถือ */
         margin: 15px 0;
+    }
+
+    .game-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-card {
+        width: 100%;
     }
 }
 
