@@ -9,6 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Simple loading spinner */
+        .loading {
+            display: none;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,6 +57,7 @@
     </header>
 
     <main>
+        <div id="loading" class="loading">Loading...</div>
         <div id="payment-history-container">
             <!-- Payment history will be displayed here -->
         </div>
@@ -60,22 +70,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const paymentHistoryContainer = document.getElementById('payment-history-container');
+            const loadingIndicator = document.getElementById('loading');
             const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
 
-            if (paymentHistory.length > 0) {
-                paymentHistory.forEach(payment => {
-                    const paymentDiv = document.createElement('div');
-                    paymentDiv.className = 'payment-item';
-                    paymentDiv.innerHTML = `
-                        <p>Transaction ID: ${payment.transactionId}</p>
-                        <p>Amount: ${payment.amount}</p>
-                        <p>Date: ${new Date(payment.date).toLocaleDateString()}</p>
-                    `;
-                    paymentHistoryContainer.appendChild(paymentDiv);
-                });
-            } else {
-                paymentHistoryContainer.innerHTML = '<p>No payment history available.</p>';
-            }
+            // Show loading indicator
+            loadingIndicator.style.display = 'block';
+
+            setTimeout(() => { // Simulate loading delay
+                if (paymentHistory.length > 0) {
+                    paymentHistory.forEach(payment => {
+                        const paymentDiv = document.createElement('div');
+                        paymentDiv.className = 'payment-item';
+                        paymentDiv.innerHTML = `
+                            <p>Transaction ID: ${payment.transactionId}</p>
+                            <p>Amount: ${payment.amount}</p>
+                            <p>Date: ${new Date(payment.date).toLocaleDateString()}</p>
+                        `;
+                        paymentHistoryContainer.appendChild(paymentDiv);
+                    });
+                } else {
+                    paymentHistoryContainer.innerHTML = '<p>No payment history available.</p>';
+                }
+
+                // Hide loading indicator
+                loadingIndicator.style.display = 'none';
+            }, 1000); // Adjust the delay as needed
         });
     </script>
 </body>
