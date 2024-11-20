@@ -175,7 +175,7 @@
                                 images: [item.imageUrl] // เพิ่มรูปภาพในข้อมูล
                             })),
                             domain: frontend_url, // เพิ่มโดเมน
-                            redirectUrl: `${frontend_url}/index.html` // เปลี่ยนเป็น index.html
+                            redirectUrl: `${frontend_url}/success.html` // ใช้ template string
                         })
                     });
 
@@ -185,13 +185,9 @@
                         // Clear the cart after successful payment
                         cart = []; // ลบสินค้าทั้งหมดในตะกร้า
                         localStorage.removeItem('cart'); // ลบข้อมูลใน localStorage
+                        console.log('Cart after payment:', cart); // ตรวจสอบสถานะของ cart
                         updateCart(); // อัปเดตตะกร้า
-
-                        // แสดง popup ขอบคุณ
-                        alert('ขอบคุณที่ชำระเงิน!');
-
-                        // เปลี่ยนไปที่หน้า index.html
-                        window.location.href = `${frontend_url}/index.html`;
+                        window.open(data.paymentUrl, '_blank');
                     } else {
                         throw new Error(data.error || 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
                     }
