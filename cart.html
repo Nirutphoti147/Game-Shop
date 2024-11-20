@@ -187,7 +187,7 @@
                         localStorage.removeItem('cart'); // ลบข้อมูลใน localStorage
                         console.log('Cart after payment:', cart); // ตรวจสอบสถานะของ cart
                         updateCart(); // อัปเดตตะกร้า
-                        window.open(data.paymentUrl, '_blank');
+                        window.open(data.paymentUrl, '_self');
                     } else {
                         throw new Error(data.error || 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
                     }
