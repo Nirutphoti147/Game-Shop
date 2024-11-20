@@ -182,6 +182,9 @@
                     const data = await response.json();
 
                     if (data.success) {
+                        // Clear the cart after successful payment
+                        cart = []; // ลบสินค้าทั้งหมดในตะกร้า
+                        updateCart(); // อัปเดตตะกร้า
                         window.open(data.paymentUrl, '_blank');
                     } else {
                         throw new Error(data.error || 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
